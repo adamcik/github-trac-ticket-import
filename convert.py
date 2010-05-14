@@ -44,7 +44,12 @@ for ticket in tickets:
     urllib.urlopen(github_url, data)
     response = urllib.urlopen(url, data)
     content = response.read()
-    issue = json.loads(content)['issue']
+
+    try:
+        issue = json.loads(content)['issue']
+    except KeyError:
+        raise Exception(content)
+
     data = urllib.urlencode({
         'login': USERNAME,
         'token': AUTH_TOKEN,

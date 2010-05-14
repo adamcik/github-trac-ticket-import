@@ -8,6 +8,12 @@ supported in any way. The ``TRAC_URL`` should be pointed the CSV version of
 report 1. ``USERNAME`` is the Github login, ``PROJECT`` the repo name and
 ``AUTH_TOKEN`` your Github API token.
 
+Known issues
+------------
+
+This code does not respect the rate limiting Github has on it's API, thus it
+will fail once this limit has been passed.
+
 License
 -------
 

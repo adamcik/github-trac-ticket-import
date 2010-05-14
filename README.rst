@@ -5,7 +5,7 @@ Simple script for transfering tickets from Trac to Github.
 
 This was written manly for a once off conversion, so this is not well testet or
 supported in any way. The ``TRAC_URL`` should be pointed the CSV version of
-report 1. ``USERNAME`` is the Github login, ``PROJECT``the repo name and
+report 1. ``USERNAME`` is the Github login, ``PROJECT`` the repo name and
 ``AUTH_TOKEN`` your Github API token.
 
 License

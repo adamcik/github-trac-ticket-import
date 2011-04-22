@@ -1,17 +1,29 @@
-Github Trac Ticket Import
+GitHub Trac Ticket Import
 =========================
 
-Simple script for transfering tickets from Trac to Github.
+Simple script for transferring tickets from Trac to GitHub.
 
-This was written manly for a once off conversion, so this is not well testet or
-supported in any way. The ``TRAC_URL`` should be pointed the CSV version of
-report 1. ``USERNAME`` is the Github login, ``PROJECT`` the repo name and
-``AUTH_TOKEN`` your Github API token.
+This was written manly for a once off conversion, so this is not well tested or
+supported in any way.
+
+``TRAC_URL``
+    should be pointed the CSV version of report 1. 
+``USERNAME``
+    is your GitHub login.
+``ORGNAME``
+    is the organization name where the repo is located, if different than your 
+    GitHub login. (You must have appropriate permissions in the organization to
+    import issues, if the organization is different than your GitHub login.) If
+    left empty, then this will default to your GitHub login.
+``PROJECT``
+    the repo name.
+``AUTH_TOKEN``
+    your GitHub API token.
 
 Known issues
 ------------
 
-This code does not respect the rate limiting Github has on it's API, thus it
+This code does not respect the rate limiting GitHub has on it's API, thus it
 will fail once this limit has been passed.
 
 License

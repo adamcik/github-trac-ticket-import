@@ -5,16 +5,20 @@ import json
 import urllib
 
 USERNAME = ''
+ORGNAME = ''
 PROJECT = ''
 AUTH_TOKEN = ''
 TRAC_URL = 'http://example.com/trac/report/1?format=csv'
+
+if (ORGNAME == ''):
+    ORGNAME = USERNAME
 
 github_url = 'https://github.com/api/v2/json/issues/'
 csv_data = urllib.urlopen(TRAC_URL)
 reader = csv.DictReader(csv_data)
 tickets = []
 
-url = github_url + 'list/%s/%s/open' % (USERNAME, PROJECT)
+url = github_url + 'list/%s/%s/open' % (ORGNAME, PROJECT)
 response = urllib.urlopen(url)
 content = response.read()
 issues = json.loads(content)['issues']
@@ -33,7 +37,7 @@ for row in reader:
     })
 
 for ticket in tickets:
-    url = github_url + 'open/%s/%s' % (USERNAME, PROJECT)
+    url = github_url + 'open/%s/%s' % (ORGNAME, PROJECT)
     data = urllib.urlencode({
         'login': USERNAME,
         'token': AUTH_TOKEN,
@@ -57,5 +61,5 @@ for ticket in tickets:
 
     for tag in ticket['tags']:
         url = github_url + 'label/add/%s/%s/%s/%s' % (
-            USERNAME, PROJECT, tag, issue['number'])
+            ORGNAME, PROJECT, tag, issue['number'])
         urllib.urlopen(url, data)

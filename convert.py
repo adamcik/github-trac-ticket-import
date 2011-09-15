@@ -46,7 +46,7 @@ for ticket in tickets:
         'login': USERNAME,
         'token': AUTH_TOKEN,
         'title': ticket['title'],
-        'body': ticket['description'],
+        'body': ticket['description'].encode('utf-8'),
     })
 
     urllib.urlopen(github_url, data)

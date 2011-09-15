@@ -19,7 +19,11 @@ reader = csv.DictReader(csv_data)
 tickets = []
 
 url = github_url + 'list/%s/%s/open' % (ORGNAME, PROJECT)
-response = urllib.urlopen(url)
+data = urllib.urlencode({
+    'login': USERNAME,
+    'token': AUTH_TOKEN,
+})
+response = urllib.urlopen(url, data)
 content = response.read()
 issues = json.loads(content)['issues']
 

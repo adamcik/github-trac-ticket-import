@@ -9,6 +9,7 @@ ORGNAME = ''
 PROJECT = ''
 AUTH_TOKEN = ''
 TRAC_URL = 'http://example.com/trac/report/1?format=csv'
+TAGS = []
 
 if (ORGNAME == ''):
     ORGNAME = USERNAME
@@ -37,7 +38,7 @@ for row in reader:
     tickets.append({
         'title': row['summary'],
         'description': row['_description'],
-        'tags': [u'ime', row['type'], row['component']],
+        'tags': [row['type'], row['component']] + TAGS,
     })
 
 for ticket in tickets:

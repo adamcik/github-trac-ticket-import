@@ -7,11 +7,11 @@ This was written manly for a once off conversion, so this is not well tested or
 supported in any way.
 
 ``TRAC_URL``
-    should be pointed the CSV version of report 1. 
+    should be pointed the CSV version of report 1.
 ``USERNAME``
     is your GitHub login.
 ``ORGNAME``
-    is the organization name where the repo is located, if different than your 
+    is the organization name where the repo is located, if different than your
     GitHub login. (You must have appropriate permissions in the organization to
     import issues, if the organization is different than your GitHub login.) If
     left empty, then this will default to your GitHub login.
@@ -19,6 +19,8 @@ supported in any way.
     the repo name.
 ``AUTH_TOKEN``
     your GitHub API token.
+``TAGS``
+    Additonal tags to add to project.
 
 Known issues
 ------------

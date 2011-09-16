@@ -45,7 +45,7 @@ for ticket in tickets:
     data = urllib.urlencode({
         'login': USERNAME,
         'token': AUTH_TOKEN,
-        'title': ticket['title'],
+        'title': ticket['title'].encode('utf-8'),
         'body': ticket['description'].encode('utf-8'),
     })
 
